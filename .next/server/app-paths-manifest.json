@@ -1,0 +1,11 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(site)/symptoms/page": "app/(site)/symptoms/page.js",
+  "/(site)/error/page": "app/(site)/error/page.js",
+  "/(site)/chatbot/page": "app/(site)/chatbot/page.js",
+  "/(site)/page": "app/(site)/page.js",
+  "/(site)/diet/page": "app/(site)/diet/page.js",
+  "/(site)/docs/page": "app/(site)/docs/page.js",
+  "/(site)/contactUs/page": "app/(site)/contactUs/page.js"
+}

@@ -1,0 +1,139 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import '../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import './variable.scss';
+
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    font-size: $font-18;
+    line-height: $primaryLineHeight;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $secondaryTextColor;
+    font-weight: $font-400;
+    font-family: $fontPrimary;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+main {
+    padding-top: 90px;
+}
+
+p {
+    font-size: $font-24;
+    line-height: $secondaryLineHeight;
+    font-weight: $font-400;
+    color: $secondaryTextColor;
+    margin: 0 0 40px;
+
+    &:last-child {
+        margin: 0;
+    }
+}
+
+ul li {
+    font-size: $font-18;
+    line-height: $primaryLineHeight;
+    margin: 10px 0;
+    color: $bodyColor;
+
+    a {
+        &:hover {
+            color: $primaryTextColor;
+        }
+    }
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+
+    > [class*='col'] {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-10 {
+    margin-top: 10px;
+}
+
+a {
+    color: $white;
+    text-decoration: none;
+    outline: none;
+}
+
+h2 {
+    font-size: 60px;
+    font-weight: $font-700;
+    line-height: 1.2;
+    color: $secondaryTextColor;
+    margin: 15px 0 0 0;
+}
+
+h3 {
+    font-size: 50px;
+    font-weight: $font-700;
+    line-height: 1.2;
+    color: $secondaryTextColor;
+    margin: 15px 0 0 0;
+}
+
+h4 {
+    font-size: 40px;
+    font-weight: $font-700;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    word-break: break-word;
+
+    > a {
+        color: inherit;
+        text-decoration: none;
+        outline: none;
+
+        &:hover {
+            color: $primaryTextColor;
+        }
+    }
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .mt_lg--50 {
+        margin-top: 50px !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .mt_md--50 {
+        margin-top: 50px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .mt_sm--50 {
+        margin-top: 50px !important;
+    }
+}
