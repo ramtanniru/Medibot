@@ -28,7 +28,7 @@ Medibot is a telemedicine web application designed to bridge the gap between pat
 
 ## Demo
 
-You can try a live demo of Medibot [here](link_to_demo).
+You can try a live demo of Medibot [here](https://medibot-2.vercel.app/).
 
 ![Medibot Screenshot](/images/hero.png)
 
@@ -45,5 +45,5 @@ To run Medibot locally, you'll need Node.js and MongoDB installed on your machin
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/ramtanniru/medibot.git
-   cd medibot
+   git clone https://github.com/ramtanniru/Medibot.git
+   cd Medibot
