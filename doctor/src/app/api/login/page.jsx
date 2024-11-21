@@ -89,7 +89,7 @@ const LoginPage = () => {
         </button>
         <p className="text-sm text-gray-500 text-center mt-4">
           Don’t have an account?{' '}
-          <Link href="signin" className="text-[#191d30] font-medium hover:underline">
+          <Link href="/api/signin" className="text-[#191d30] font-medium hover:underline">
             Create one here
           </Link>
         </p>
