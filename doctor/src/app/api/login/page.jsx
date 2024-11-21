@@ -1,15 +1,17 @@
 'use client';
 import Link from 'next/link';
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useUser } from '@/context/UserContext';
 
 const LoginPage = () => {
+  const {addUser} = useUser();
   const emailRef = useRef('');
   const passwordRef = useRef('');
   const [errors, setErrors] = useState({ email: '', password: '' });
   const router = useRouter();
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const email = emailRef.current.value.trim();
     const password = passwordRef.current.value.trim();
     let valid = true;
@@ -36,9 +38,44 @@ const LoginPage = () => {
 
     setErrors(newErrors);
 
-    if (valid) {
+    try {
+      const formData = new FormData();
+      formData.append('email', email);
+      formData.append('password', password);
+  
+      const response = await fetch('https://backendmedibot.onrender.com/doctor/login', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (!response.ok) {
+        const result = await response.json();
+        throw new Error(result.message || 'Signup failed');
+      }
+  
+      const result = await response.json();
+      try {
+        const url = "https://backendmedibot.onrender.com/doctor/change-activity";
+        const data = new FormData();
+        data.append('id', result.doctor.id);
+        data.append('status', 'active');
+        fetch(url, {
+          method: 'POST',
+          body: data,
+        });
+      }
+      catch(err) {
+        console.error('Signup Error:', err.message);
+        setErrors({ form: err.message });
+        return;
+      }
+      addUser(result.doctor.id);
       const username = email.split('@')[0];
       router.push(`/room/${username}`);
+    } catch (error) {
+      console.error('Signup Error:', error.message);
+      setErrors({ form: error.message });
+      return;
     }
   };
 

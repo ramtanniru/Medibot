@@ -2,8 +2,10 @@
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useUser } from '@/context/UserContext';
 
 const SignUpPage = () => {
+  const {addUser} = useUser();
   const emailRef = useRef('');
   const nameRef = useRef('');
   const specializationRef = useRef('');
@@ -111,7 +113,23 @@ const SignUpPage = () => {
         throw new Error(result.message || 'Signup failed');
       }
   
-      // Redirect to user-specific page on success
+      const result = await response.json();
+      try {
+        const url = "https://backendmedibot.onrender.com/doctor/change-activity";
+        const data = new FormData();
+        data.append('id', result.doctor.id);
+        data.append('status', 'active');
+        fetch(url, {
+          method: 'POST',
+          body: data,
+        });
+      }
+      catch(err) {
+        console.error('Signup Error:', err.message);
+        setErrors({ form: err.message });
+        return;
+      }
+      addUser(result.id);
       const username = email.split('@')[0];
       router.push(`/room/${username}`);
     } catch (error) {
