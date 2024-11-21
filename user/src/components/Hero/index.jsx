@@ -27,7 +27,7 @@ const Hero = () => {
               <p>
               Your reliable virtual healthcare assistant, available anytime, anywhere.
                Experience personalized medical advice and connect with professionals effortlessly.
-                With advanced AI technology, MediBot ensures prompt assistance and peace of mind on your health journey."
+                With advanced AI technology, MediBot ensures prompt assistance and peace of mind on your health journey.
               </p>
 
               <div className="mt-10">
