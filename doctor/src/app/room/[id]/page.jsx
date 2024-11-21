@@ -27,12 +27,9 @@ const RoomPage = () => {
     };
 
     const handleBeforeUnload = (event) => {
-      // Update activity status
       updateActivityStatus();
-
-      // Show a custom alert message (not displayed in modern browsers)
       event.preventDefault();
-      event.returnValue = ''; // Required for modern browsers to show their default prompt
+      event.returnValue = '';
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
@@ -77,7 +74,17 @@ const RoomPage = () => {
 
   return (
     <div className="h-screen flex w-full justify-center items-center">
-      <div className="w-full" ref={meetingContainerRef} />
+      <div
+        className="w-full max-w-full h-full max-h-full overflow-hidden"
+        ref={meetingContainerRef}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: '#000', // Ensures a proper background for videos
+        }}
+      />
     </div>
   );
 };
