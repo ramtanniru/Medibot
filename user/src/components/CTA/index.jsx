@@ -32,9 +32,9 @@ const CTA = () => {
                 Join With Us & Access Seamless Healthcare At Your Fingertips
               </h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                convallis tortor eros. Donec vitae tortor lacus. Phasellus
-                aliquam ante in maximus.
+              Our platform offers easy access to online doctor consultations,
+               personalized symptom analysis, and custom diet planning powered by AI.
+                Empowering your health journey with seamless, tech-driven solutions anytime, anywhere.
               </p>
             </motion.div>
             <motion.div

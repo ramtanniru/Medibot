@@ -4,42 +4,42 @@ const featuresData = [
     icon: "/images/icon/icon-01.svg",
     title: "AI chatbot",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Get instant, automated assistance for healthcare queries through our intelligent chatbot.",
   },
   {
     id: 2,
     icon: "/images/icon/icon-02.svg",
     title: "Symptom analysis",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Receive AI-powered insights into potential conditions based on your reported symptoms.",
   },
   {
     id: 3,
     icon: "/images/icon/icon-03.svg",
     title: "Diet planner",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Access personalized diet plans tailored to your health needs and goals",
   },
   {
     id: 4,
     icon: "/images/icon/icon-04.svg",
     title: "Doctor consultation",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Connect with certified doctors for online consultations, available at your convenience.",
   },
   {
     id: 5,
     icon: "/images/icon/icon-05.svg",
     title: "Data privacy",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Your personal health data is securely stored and protected with top-tier privacy measures.",
   },
   {
     id: 6,
     icon: "/images/icon/icon-06.svg",
-    title: "Facial recognition",
+    title: "NLP Based Results",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Benefit from natural language processing to get accurate, contextual analysis and recommendations.",
   },
 ];
 
