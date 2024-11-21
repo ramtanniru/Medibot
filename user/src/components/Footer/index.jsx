@@ -286,7 +286,7 @@ const Footer = () => {
               className="animate_top"
             >
               <p>
-                &copy; {new Date().getFullYear()} Developed by Ram and Satya
+                &copy; {new Date().getFullYear()} Developed by Ram and Sujan
               </p>
             </motion.div>
 

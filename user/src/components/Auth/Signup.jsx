@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 const Signup = () => {
   const [data, setData] = useState({
     firstName: "",
@@ -12,6 +12,7 @@ const Signup = () => {
     password: "",
   });
   const [error, setError] = useState(null);
+  const router = useRouter();
 
   const handleSignUp = async () => {
     try {
@@ -20,15 +21,15 @@ const Signup = () => {
       formData.append("phone", data.phone);
       formData.append("email", data.email);
       formData.append("password", data.password);
-      const response = await fetch(process.env.BACKEND_URL+'/user/signup', {
+      const response = await fetch('https://backendmedibot.onrender.com/user/signup', {
         method: "POST",
         body: formData,
       });
-
+      
       if (!response.ok) {
         throw new Error("Failed to sign up. Please try again.");
       }
-      redirect("/");
+      router.push('/');
     } catch (err) {
       setError(err.message || "An error occurred. Please try again.");
     }
@@ -77,12 +78,12 @@ const Signup = () => {
               Create an Account
             </h2>
 
-            <form>
+            <div>
               <div className="mb-7.5 flex flex-col gap-7.5 lg:mb-12.5 lg:flex-row lg:justify-between lg:gap-14">
                 <input
                   name="firstName"
                   type="text"
-                  placeholder="First name"
+                  placeholder="Full name"
                   value={data.firstName}
                   onChange={(e) =>
                     setData({ ...data, [e.target.name]: e.target.value })
@@ -159,6 +160,7 @@ const Signup = () => {
                 </div>
 
                 <button
+                  onClick={handleSignUp}
                   aria-label="signup with email and password"
                   className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                 >
@@ -190,7 +192,7 @@ const Signup = () => {
                   </Link>
                 </p>
               </div>
-            </form>
+            </div>
           </motion.div>
         </div>
       </section>

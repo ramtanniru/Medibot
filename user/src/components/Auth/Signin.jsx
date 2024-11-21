@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Signin = () => {
   const [data, setData] = useState({
@@ -10,6 +11,34 @@ const Signin = () => {
     password: "",
   });
 
+  const router = useRouter();
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+  
+    const formData = new FormData();
+    formData.append("email", data.email);
+    formData.append("password", data.password);
+  
+    try {
+      const response = await fetch('https://backendmedibot.onrender.com/user/login', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+  
+      const result = await response.json();
+      console.log("hiiiiilel");
+      
+      router.push('/');
+    } catch (error) {
+      console.error("Login failed:", error.message);
+    }
+  };
+  
   return (
     <>
       {/* <!-- ===== SignIn Form Start ===== --> */}
@@ -53,7 +82,7 @@ const Signin = () => {
               Login to Your Account
             </h2>
 
-            <form>
+            <div>
               <div className="mb-7.5 flex flex-col gap-7.5 lg:mb-12.5 lg:flex-row lg:justify-between lg:gap-14">
                 <input
                   type="text"
@@ -115,6 +144,7 @@ const Signin = () => {
                 </div>
 
                 <button
+                  onClick={handleSignIn}
                   aria-label="login with email and password"
                   className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                 >
@@ -146,7 +176,7 @@ const Signin = () => {
                   </Link>
                 </p>
               </div>
-            </form>
+            </div>
           </motion.div>
         </div>
       </section>
