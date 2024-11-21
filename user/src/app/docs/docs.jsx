@@ -4,7 +4,7 @@ const Doc = ({ doctor }) => {
   const roomId = doctor.email.split('@')[0];
   return (
     <div className='flex flex-col gap-3 rounded-md shadow p-5 border-slate-700 border'>
-      <div className="overflow-hidden max-h-72">
+      <div className="overflow-hidden h-72">
         <Image
         src={doctor.image}
         alt={doctor.name}
